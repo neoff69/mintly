@@ -1,0 +1,64 @@
+{
+    // nicely name your dev container environment (shown at left-hand bottom corner in VSCode)
+    "name": "${containerWorkspaceFolderBasename}",
+    // you can instead build an image using the included Dockerfile to do some tuning required at development only
+    // if required, tune Dockerfile, comment image and uncomment the following to trigger build at dev container creation
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "HOST_USER": "${localEnv:USER}",
+            "HOST_HOME": "${localEnv:HOME}",
+            "HOST_SHELL": "${localEnv:SHELL}"
+        }
+    },
+    // mount your workspace: we mount in the exact same folder as the host one
+    "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind,consistency=cached",
+    // directory to use as workspace inside container: you can tune it if required
+    "workspaceFolder": "${localWorkspaceFolder}",
+    "mounts": [
+        "source=${localEnv:HOME},target=${localEnv:HOME}/host,type=bind,consistency=cached",
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    // VSCode settings and extensions
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.insertSpaces": true,
+                "editor.tabSize": 2,
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "editor.formatOnPaste": true,
+                "[javascript]": {
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll.eslint": true
+                    }
+                },
+                "terminal.integrated.allowChords": false,
+                "terminal.integrated.drawBoldTextInBrightColors": false
+            },
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    // run custom
+    "postAttachCommand": "/usr/local/scripts/postAttach.sh",
+    "overrideCommand": false,
+    // run in network host mode to acces published ports in local demo environments
+    "runArgs": [
+        "--network",
+        "host"
+    ],
+    // user to start container with
+    "containerUser": "${localEnv:USER}",
+    // user to exec inside the container
+    // ubuntu if using base image
+    //"remoteUser": "dev",
+    // your local user name if using a custom built image with your user in it
+    "remoteUser": "${localEnv:USER}",
+    // update remote user uid : true by default
+    // added here to remind you remoteUser ids must be adjusted
+    "updateRemoteUserUID": true,
+    "forwardPorts": []
+}
