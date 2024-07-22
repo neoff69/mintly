@@ -18,11 +18,12 @@ A call to the Solana smartcontract is made and the NFT is stored on the blockcha
 
 Follow these steps to clone the repository and start the development server:
 
--   `git clone https://github.com/neoff69/alyra-project`
+-   `git clone https://github.com/mike-fr13/mintly-v2`
 -   `npm install`
 -   `npm run dev`
 
 You should now be able to access the application at http://localhost:3000
+This application is also deployed on Vercel : https://mintly-v2.vercel.app/
 
 # Front-end
 
@@ -122,8 +123,6 @@ anchor test
 ```
 
 4. To interact with the frontend, copy the IDL and TypeScript types files from `anchor/target/idl` and `anchor/target/types` to the `web/components/idl` folder. This ensures you have the most recent `programId` and types.
-
-
 
 
 ## Usage
