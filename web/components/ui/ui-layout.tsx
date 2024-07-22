@@ -163,8 +163,8 @@ export function AppHero({
                         <p className="pt-20 text-xl text-violet-100 ">
                             {' '}
                             The cashprize of the lottery is actually{' '}
-                            {balance / 1000000000} SOL your chance to win per
-                            transaction is {(1 / remainingTickets) * 100}%
+                            {(balance / 1000000000).toFixed(2)} SOL your chance to win per
+                            transaction is {((1 / remainingTickets) * 100).toFixed(2)}%
                         </p>
                     ) : null}
 
