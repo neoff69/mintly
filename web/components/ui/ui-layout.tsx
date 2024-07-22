@@ -146,25 +146,25 @@ export function AppHero({
             <div className="hero-content text-center max-w-2xl">
                 <div className=" pt-10">
                     {typeof title === 'string' ? (
-                        <h1 className="text-5xl font-bold  text-violet-300">
+                        <h1 className="text-5xl font-bold  text-violet-500">
                             {title}
                         </h1>
                     ) : (
                         title
                     )}
                     {typeof subtitle === 'string' ? (
-                        <p className="pt-20 text-xl text-violet-100 ">
+                        <p className="pt-20 text-xl text-violet-300 ">
                             {subtitle}
                         </p>
                     ) : (
                         subtitle
                     )}
                     {balance != -1 ? (
-                        <p className="pt-20 text-xl text-violet-100 ">
+                        <p className="pt-20 text-xl text-violet-300 ">
                             {' '}
                             The cashprize of the lottery is actually{' '}
-                            {(balance / 1000000000).toFixed(2)} SOL your chance to win per
-                            transaction is {((1 / remainingTickets) * 100).toFixed(2)}%
+                            {(balance / 1000000000).toFixed(2)} SOL. <br />
+                            Your chance to win per transaction is {((1 / remainingTickets) * 100).toFixed(2)}%
                         </p>
                     ) : null}
 
