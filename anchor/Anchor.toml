@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-nft_lotery_no_code = "BFeJzozj43cFUMcNBYkEj6VR68Wcpqy34big4LjrqXho"
+nft_lotery_no_code = "6dypAdHSihBKPfo1JMEYxe4rZQbKm8dxtAnXkpMQG7KS"
 
 [registry]
 url = "https://api.apr.dev"
