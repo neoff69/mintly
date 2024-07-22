@@ -1,0 +1,952 @@
+{
+  "address": "BFeJzozj43cFUMcNBYkEj6VR68Wcpqy34big4LjrqXho",
+  "metadata": {
+    "name": "nft_lotery_no_code",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "create_collection_v1",
+      "discriminator": [
+        71,
+        98,
+        203,
+        162,
+        193,
+        109,
+        187,
+        240
+      ],
+      "accounts": [
+        {
+          "name": "collection",
+          "docs": [
+            "The address of the new asset."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "update_authority",
+          "docs": [
+            "The authority on the new asset."
+          ],
+          "optional": true
+        },
+        {
+          "name": "signer",
+          "docs": [
+            "The account paying for the storage fees."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The system program."
+          ],
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "mpl_core",
+          "docs": [
+            "The MPL Core program."
+          ],
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        },
+        {
+          "name": "jackpot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  97,
+                  99,
+                  107,
+                  112,
+                  111,
+                  116,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "CreateCollectionV1Args"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create_nft_v1",
+      "discriminator": [
+        47,
+        164,
+        243,
+        205,
+        110,
+        135,
+        226,
+        230
+      ],
+      "accounts": [
+        {
+          "name": "asset",
+          "docs": [
+            "The address of the new asset."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "collection",
+          "docs": [
+            "The collection to which the asset belongs."
+          ],
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "The authority signing for creation."
+          ],
+          "signer": true,
+          "optional": true
+        },
+        {
+          "name": "signer",
+          "docs": [
+            "The account paying for the storage fees."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "owner",
+          "docs": [
+            "The owner of the new asset. Defaults to the authority if not present."
+          ],
+          "optional": true
+        },
+        {
+          "name": "update_authority",
+          "docs": [
+            "The authority on the new asset."
+          ],
+          "optional": true
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The system program."
+          ],
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "log_wrapper",
+          "docs": [
+            "The SPL Noop program."
+          ],
+          "optional": true
+        },
+        {
+          "name": "mpl_core",
+          "docs": [
+            "The MPL Core program."
+          ],
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        },
+        {
+          "name": "jackpot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  97,
+                  99,
+                  107,
+                  112,
+                  111,
+                  116,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "CreateNftV1Args"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "init_jackpot_vault",
+      "discriminator": [
+        232,
+        109,
+        117,
+        250,
+        140,
+        252,
+        238,
+        130
+      ],
+      "accounts": [
+        {
+          "name": "jackpot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  106,
+                  97,
+                  99,
+                  107,
+                  112,
+                  111,
+                  116,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "transfer_v1",
+      "discriminator": [
+        219,
+        95,
+        64,
+        10,
+        55,
+        137,
+        133,
+        109
+      ],
+      "accounts": [
+        {
+          "name": "asset",
+          "docs": [
+            "The address of the asset."
+          ],
+          "writable": true
+        },
+        {
+          "name": "collection",
+          "docs": [
+            "The collection to which the asset belongs."
+          ],
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "The account paying for the storage fees."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "The owner or delegate of the asset."
+          ],
+          "signer": true,
+          "optional": true
+        },
+        {
+          "name": "new_owner",
+          "docs": [
+            "The new owner of the asset."
+          ]
+        },
+        {
+          "name": "system_program",
+          "docs": [
+            "The system program."
+          ],
+          "optional": true
+        },
+        {
+          "name": "log_wrapper",
+          "docs": [
+            "The SPL Noop program."
+          ],
+          "optional": true
+        },
+        {
+          "name": "mpl_core",
+          "docs": [
+            "The MPL Core program."
+          ],
+          "address": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "TransferV1Args"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "JackpotVault",
+      "discriminator": [
+        92,
+        180,
+        135,
+        82,
+        50,
+        74,
+        83,
+        167
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "JackpotBalance",
+      "discriminator": [
+        98,
+        93,
+        159,
+        104,
+        169,
+        105,
+        221,
+        112
+      ]
+    },
+    {
+      "name": "JackpotWin",
+      "discriminator": [
+        106,
+        249,
+        41,
+        138,
+        58,
+        15,
+        197,
+        73
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidPluginType",
+      "msg": "Invalid plugin type"
+    },
+    {
+      "code": 6001,
+      "name": "InsufficientFunds",
+      "msg": "Insufficient funds"
+    },
+    {
+      "code": 6002,
+      "name": "ClockRetrievalFailed",
+      "msg": "Clock retrieval failed"
+    },
+    {
+      "code": 6003,
+      "name": "Overflow",
+      "msg": "Overflow"
+    },
+    {
+      "code": 6004,
+      "name": "Underflow",
+      "msg": "Underflow"
+    }
+  ],
+  "types": [
+    {
+      "name": "AddBlocker",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "Attribute",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "key",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Attributes",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "attribute_list",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Attribute"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "BurnDelegate",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "CreateCollectionV1Args",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "plugins",
+            "type": {
+              "option": {
+                "vec": {
+                  "defined": {
+                    "name": "PluginAuthorityPair"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateNftV1Args",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "plugins",
+            "type": {
+              "option": {
+                "vec": {
+                  "defined": {
+                    "name": "PluginAuthorityPair"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Creator",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "pubkey"
+          },
+          {
+            "name": "percentage",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Edition",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "number",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FreezeDelegate",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "frozen",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ImmutableMetadata",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "JackpotBalance",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "remaining_tickets",
+            "type": "u32"
+          },
+          {
+            "name": "balance",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JackpotVault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "deposited_fee_number",
+            "type": "u32"
+          },
+          {
+            "name": "remaining_tickets",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JackpotWin",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "winner",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MasterEdition",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "max_supply",
+            "type": {
+              "option": "u32"
+            }
+          },
+          {
+            "name": "name",
+            "type": {
+              "option": "string"
+            }
+          },
+          {
+            "name": "uri",
+            "type": {
+              "option": "string"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PermanentBurnDelegate",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "PermanentFreezeDelegate",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "frozen",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PermanentTransferDelegate",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "Plugin",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Royalties",
+            "fields": [
+              {
+                "defined": {
+                  "name": "Royalties"
+                }
+              }
+            ]
+          },
+          {
+            "name": "FreezeDelegate",
+            "fields": [
+              {
+                "defined": {
+                  "name": "FreezeDelegate"
+                }
+              }
+            ]
+          },
+          {
+            "name": "BurnDelegate",
+            "fields": [
+              {
+                "defined": {
+                  "name": "BurnDelegate"
+                }
+              }
+            ]
+          },
+          {
+            "name": "TransferDelegate",
+            "fields": [
+              {
+                "defined": {
+                  "name": "TransferDelegate"
+                }
+              }
+            ]
+          },
+          {
+            "name": "UpdateDelegate",
+            "fields": [
+              {
+                "defined": {
+                  "name": "UpdateDelegate"
+                }
+              }
+            ]
+          },
+          {
+            "name": "PermanentFreezeDelegate",
+            "fields": [
+              {
+                "defined": {
+                  "name": "PermanentFreezeDelegate"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Attributes",
+            "fields": [
+              {
+                "defined": {
+                  "name": "Attributes"
+                }
+              }
+            ]
+          },
+          {
+            "name": "PermanentTransferDelegate",
+            "fields": [
+              {
+                "defined": {
+                  "name": "PermanentTransferDelegate"
+                }
+              }
+            ]
+          },
+          {
+            "name": "PermanentBurnDelegate",
+            "fields": [
+              {
+                "defined": {
+                  "name": "PermanentBurnDelegate"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Edition",
+            "fields": [
+              {
+                "defined": {
+                  "name": "Edition"
+                }
+              }
+            ]
+          },
+          {
+            "name": "MasterEdition",
+            "fields": [
+              {
+                "defined": {
+                  "name": "MasterEdition"
+                }
+              }
+            ]
+          },
+          {
+            "name": "AddBlocker",
+            "fields": [
+              {
+                "defined": {
+                  "name": "AddBlocker"
+                }
+              }
+            ]
+          },
+          {
+            "name": "ImmutableMetadata",
+            "fields": [
+              {
+                "defined": {
+                  "name": "ImmutableMetadata"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "PluginAuthority",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "None"
+          },
+          {
+            "name": "Owner"
+          },
+          {
+            "name": "UpdateAuthority"
+          },
+          {
+            "name": "Address",
+            "fields": [
+              {
+                "name": "address",
+                "type": "pubkey"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "PluginAuthorityPair",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "plugin",
+            "type": {
+              "defined": {
+                "name": "Plugin"
+              }
+            }
+          },
+          {
+            "name": "authority",
+            "type": {
+              "option": {
+                "defined": {
+                  "name": "PluginAuthority"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Royalties",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "basis_points",
+            "type": "u16"
+          },
+          {
+            "name": "creators",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "Creator"
+                }
+              }
+            }
+          },
+          {
+            "name": "rule_set",
+            "type": {
+              "defined": {
+                "name": "RuleSet"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "RuleSet",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "None"
+          },
+          {
+            "name": "ProgramAllowList",
+            "fields": [
+              {
+                "vec": "pubkey"
+              }
+            ]
+          },
+          {
+            "name": "ProgramDenyList",
+            "fields": [
+              {
+                "vec": "pubkey"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "TransferDelegate",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "TransferV1Args",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "UpdateDelegate",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "additional_delegates",
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "JACKPOT_SEED",
+      "type": "string",
+      "value": "\"jackpot_vault\""
+    }
+  ]
+}
