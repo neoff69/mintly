@@ -14,6 +14,14 @@ Once the user complete the form to create an NFT (file, name, description).
 Then the file is stored on an ipfs link with the pinata api, an other call to the api if made to make the final ipfs link with all the metadata from the form.
 A call to the Solana smartcontract is made and the NFT is stored on the blockchain.
 
+### Contributeurs :
+
+<p align="flex">
+  <img src="https://github.com/mike-fr13.png" alt="Yannick" width="100" height="100" />
+  <img src="https://github.com/neoff69.png" alt="Valentin" width="100" height="100" />
+</p>
+
+
 # Getting Started
 
 Follow these steps to clone the repository and start the development server:
